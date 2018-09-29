@@ -230,7 +230,6 @@ message.author.send(embed);
   }
     if(message.content.startsWith(prefix + 'test')){
           message.author.send("hola");
-    
     }
   
   });
