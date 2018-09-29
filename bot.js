@@ -238,4 +238,4 @@ message.author.send(embed);
     
   
   });
-bot.login(process.env.TOKEN);
+bot.login(process.env.BOT_TOKEN);
