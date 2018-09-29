@@ -228,9 +228,6 @@ message.author.send(embed);
     if(message.content.startsWith(prefix + 'avatar')){
           message.reply(message.author.avatarURL);
   }
-    if(message.content.startsWith(prefix + 'test')){
-          message.author.send("hola");
-    }
   
   });
 bot.login(process.env.TOKEN);
