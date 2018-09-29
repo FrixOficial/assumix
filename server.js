@@ -34,11 +34,7 @@ console.log(`${bot.user.username} is updated in ${bot.guilds.size} servers and $
   if (message.content === "Hola") {
 		        message.react("👋")
      console.log(`${message.author.username} ha dicho hola`)
-   }
-    if (message.content.startsWith(prefix + "ayuda")){
-           message.channel.send('la lista de comandos ha sido enviada a tu DM :mailbox_with_mail:')
-                 }
-    
+   }    
 //if(message.content.startsWith(prefix + 'destroy')){
         //message.channel.delete("1");
   //}
