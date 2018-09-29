@@ -234,8 +234,8 @@ message.author.send(embed);
   }
     if(message.content.startsWith(prefix + 'test')){
           message.author.send("hola");
-    }
     
+    }
   
   });
-client.login(process.env.BOT_TOKEN);
+bot.login(process.env.TOKEN);
