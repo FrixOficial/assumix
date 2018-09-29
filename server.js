@@ -50,7 +50,7 @@ message.channel.send("just deleted `"+ deleteNum +"` for you!")
 }
     if (message.content.startsWith(prefix + "setdnd")){
 const jjj = args.join(" ");
-const nameisdnd = bot.channels.get('476898910342873099')
+const nameisdnd = bot.channels.get('476907210224566312')
 nameisdnd.setName(jjj)
 message.channel.send(nameisdnd.name)
       console.log(`${message.author.username} has set dnd to ${jjj}`)
