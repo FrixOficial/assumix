@@ -229,7 +229,7 @@ message.author.send(embed);
 	  if(message.content.startsWith(prefix + 'avatar')){
     let user = message.mentions.users.first() || message.author;
     const embed = new Discord.RichEmbed()
-    .setTitle("Avatar:")
+    .setTitle("Avatar")
     .setImage(user.displayAvatarURL)
     .setColor("#20e510")
     message.channel.send(embed)
