@@ -231,6 +231,7 @@ message.author.send(embed);
     const embed = new Discord.RichEmbed()
     .setTitle("Avatar:")
     .setImage(user.displayAvatarURL)
+    .setColor("#20e510")
     message.channel.send(embed)
   }
 	  
