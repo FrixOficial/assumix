@@ -224,6 +224,13 @@ message.author.send(embed);
 .catch(error => message.reply(`Lo siento, no puedo banear ${kUser.user.username} porque: ${error}`));
     message.channel.send(`just banned ${kUser.user.username} for ${reason}`);
       console.log(`just banned ${kUser.user.username} for ${reason}`)
-    }  
+    }
+   if(message.content.startsWith(prefix + 'avatar')){
+    let user = message.mentions.users.first() || message.author;
+    const embed = new Discord.RichEmbed()
+    .setTitle("Avatar:")
+    .setImage(user.displayAvatarURL)
+    message.channel.send(embed)
+  }
   });
 bot.login(process.env.TOKEN);
