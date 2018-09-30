@@ -234,6 +234,13 @@ message.author.send(embed);
     .setColor("#20e510")
     message.channel.send(embed)
   }
+	  if(message.content.startsWith(prefix + 'rip')){
+    let user = message.mentions.users.first() || message.author;
+    const embed = new Discord.RichEmbed()
+    .setTitle("RIP")
+    .setImage("https://cdn.pixabay.com/photo/2013/07/13/12/32/tombstone-159792_960_720.png")
+    message.channel.send(embed)
+  }
 	  
   });
 bot.login(process.env.TOKEN);
