@@ -283,5 +283,12 @@ message.author.send(embed);
     .setImage("https://cdn.discordapp.com/attachments/476898910342873099/495786885235605524/kill.gif")
     message.channel.send(embed)
   }
+	  if(message.content.startsWith(prefix + 'sad')){
+    let user = message.mentions.users.first() || message.author;
+    const embed = new Discord.RichEmbed()
+    .setTitle(`${message.author.username} esta triste`)
+    .setImage("https://cdn.discordapp.com/attachments/476898910342873099/495786628338417694/sad.gif")
+    message.channel.send(embed)
+  }
   });
 bot.login(process.env.TOKEN);
