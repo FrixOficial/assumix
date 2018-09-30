@@ -226,7 +226,11 @@ message.author.send(embed);
       console.log(`just banned ${kUser.user.username} for ${reason}`)
     }
     if(message.content.startsWith(prefix + 'avatar')){
-          message.reply(message.author.avatarURL);
+	let user = message.mentions.user.firts() || message.author;
+	let embed = new Discord.RichEmbed()
+	.setAuthor(`${user.username`}'
+	.setImage(user.displayAvatarURL)
+	message.channel.send(embed)
   }
   
   });
