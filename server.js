@@ -241,6 +241,13 @@ message.author.send(embed);
     .setImage("https://cdn.pixabay.com/photo/2013/07/13/12/32/tombstone-159792_960_720.png")
     message.channel.send(embed)
   }
+	  if(message.content.startsWith(prefix + 'facepalm')){
+    let user = message.mentions.users.first() || message.author;
+    const embed = new Discord.RichEmbed()
+    .setTitle("Experimento Nazi")
+    .setImage("https://cdn.discordapp.com/attachments/476898910342873099/495781447609614400/faceplam.gif")
+    message.channel.send(embed)
+  }
 	  
   });
 bot.login(process.env.TOKEN);
