@@ -279,7 +279,6 @@ message.author.send(embed);
 	  if(message.content.startsWith(prefix + 'kill')){
     let user = message.mentions.users.first() || message.author;
     const embed = new Discord.RichEmbed()
-    const embed = new Discord.RichEmbed()
     .setTitle(`${message.author.username} mato a ${user.username}`)
     .setImage("https://cdn.discordapp.com/attachments/476898910342873099/495786885235605524/kill.gif")
     message.channel.send(embed)
