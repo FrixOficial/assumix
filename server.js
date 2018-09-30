@@ -244,7 +244,7 @@ message.author.send(embed);
 	  if(message.content.startsWith(prefix + 'facepalm')){
     let user = message.mentions.users.first() || message.author;
     const embed = new Discord.RichEmbed()
-    .setTitle("Experimento Nazi")
+    .setTitle("Facepalm")
     .setImage("https://cdn.discordapp.com/attachments/476898910342873099/495781447609614400/faceplam.gif")
     message.channel.send(embed)
   }
