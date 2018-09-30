@@ -248,6 +248,13 @@ message.author.send(embed);
     .setImage("https://cdn.discordapp.com/attachments/476898910342873099/495781447609614400/faceplam.gif")
     message.channel.send(embed)
   }
+	  if(message.content.startsWith(prefix + 'reference')){
+    let user = message.mentions.users.first() || message.author;
+    const embed = new Discord.RichEmbed()
+    .setTitle("Entendi esa referencia")
+    .setImage("https://cdn.discordapp.com/attachments/476898910342873099/495782969697370123/entendiesareferencia.gif")
+    message.channel.send(embed)
+  }
 	  
   });
 bot.login(process.env.TOKEN);
