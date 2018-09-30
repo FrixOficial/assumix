@@ -262,6 +262,12 @@ message.author.send(embed);
     .setImage("https://cdn.discordapp.com/attachments/476898910342873099/495783944780775424/risa.gif")
     message.channel.send(embed)
   }
-	  
+	  if(message.content.startsWith(prefix + 'dance')){
+    let user = message.mentions.users.first() || message.author;
+    const embed = new Discord.RichEmbed()
+    .setTitle("🎶🎶🎶")
+    .setImage("https://cdn.discordapp.com/attachments/476898910342873099/495783965991501825/platano.gif")
+    message.channel.send(embed)
+  }
   });
 bot.login(process.env.TOKEN);
