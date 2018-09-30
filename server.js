@@ -290,7 +290,7 @@ message.author.send(embed);
     .setImage("https://cdn.discordapp.com/attachments/476898910342873099/495786628338417694/sad.gif")
     message.channel.send(embed)
   }
-	  if(message.content.startsWith(prefix + 'kill')){
+	  if(message.content.startsWith(prefix + 'punch')){
     let user = message.mentions.users.first() || message.author;
     const embed = new Discord.RichEmbed()
     .setTitle(`${message.author.username} golpeo a ${user.username}`)
