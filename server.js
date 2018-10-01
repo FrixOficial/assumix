@@ -144,7 +144,7 @@ console.log('The user: ' + message.author.username + ' has invite me in ' + mess
     	}
 }
 if (message.content === '<@358699155662700554>') {
-const namednd = bot.channels.get('496417059052191755')
+const namednd = bot.channels.get('496421380821352457')
 const nameisdnd = bot.channels.get('496417059052191755')
 message.channel.send(`${nameisdnd.name}`)
 namednd.send(`you have been pinged in ${message.guild.name} by ${message.author.username}`)
