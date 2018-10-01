@@ -56,7 +56,7 @@ message.channel.send("just deleted `"+ deleteNum +"` for you!")
 }
     if (message.content.startsWith(prefix + "setdnd")){
 const jjj = args.join(" ");
-const nameisdnd = bot.channels.get('496418558339973161')
+const nameisdnd = bot.channels.get('476907210224566312')
 nameisdnd.setName(jjj)
 message.channel.send(nameisdnd.name)
       console.log(`${message.author.username} has set dnd to ${jjj}`)
@@ -145,7 +145,7 @@ console.log('The user: ' + message.author.username + ' has invite me in ' + mess
 }
 if (message.content === '<@358699155662700554>') {
 const namednd = bot.channels.get('496417059052191755')
-const nameisdnd = bot.channels.get('496418558339973161')
+const nameisdnd = bot.channels.get('476907210224566312')
 message.channel.send(`${nameisdnd.name}`)
 namednd.send(`you have been pinged in ${message.guild.name} by ${message.author.username}`)
   console.log(`you have been pinged in ${message.guild.name} by ${message.author.username}`)
