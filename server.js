@@ -76,7 +76,7 @@ if(message.content.startsWith(prefix + 'ping')){
       const embed = new Discord.RichEmbed()
 .setImage('https://cdn.discordapp.com/attachments/439712863733415946/439769744468606978/loading.gif')
       .setDescription(`Ping Messages \`${m.createdTimestamp - message.createdTimestamp} ms\`\nPing DiscordAPI: \`${ping} ms\``)
-  .setFooter(`AssuMix | ${message.createdAt}`, "https://cdn.discordapp.com/avatars/418232048210149388/69e9c25ba52ba9cbbd810599f4bc6518.png")
+  .setFooter(`AssuMix | ${message.createdAt}`, "https://cdn.discordapp.com/avatars/358699155662700554/4da061003fd895e123dee103cbcaec0e.png?size=2048")
       .setColor("#47bec6");
 
       m.edit({embed});
