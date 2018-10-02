@@ -303,5 +303,15 @@ message.author.send(embed);
     .setImage("https://cdn.discordapp.com/attachments/476898910342873099/495789026545238016/punch.gif")
     message.channel.send(embed)
   }
+	  if(message.content.startsWith(prefix + 'esay')){          
+    const content = message.content.split(' ').slice(1);
+    const SayMessage = content.join(' ');
+             if(!SayMessage) return message.channel.send("que quieres que dija")
+            const embed = new Discord.RichEmbed ()
+             .setTitle (SayMessage)
+             .setColor("#20e510")
+             message.channel.send(embed)
+             message.delete().catch(O_o=>{});
+            }
   });
 bot.login(process.env.TOKEN);
