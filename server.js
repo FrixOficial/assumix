@@ -25,7 +25,7 @@ console.log(`${bot.user.username} is updated in ${bot.guilds.size} servers and $
 bot.on("guildMemberAdd", function(member) {
   member.guild.channels.find("name", "👋bienvenido").sendMessage(member.toString() + "  Bienvenido a  :milky_way:**Galactic Community**:milky_way: por favor acepta las reglas en #🚫reglas para tener acceso al resto de canales");
   
-  member.addRole(member.guild.roles.find("name", "Member"));
+  member.addRole(member.guild.roles.find("name", "New Member"));
 });
 
   bot.on("message", async message => {
