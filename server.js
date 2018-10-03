@@ -313,5 +313,21 @@ message.author.send(embed);
              message.channel.send(embed)
              message.delete().catch(O_o=>{});
             }
+	  if(message.content.startsWith(prefix + "bugrepport")){
+  const randomColor = "#20e510".replace(/0/g, function () { return (~~(Math.random() * 16)).toString(16); });
+             console.log('The user: ' + message.author.username + ' has used *bugrepport in ' + message.guild.name + ' in channel #' + message.channel.name)
+              const content = message.content.split(' ').slice(1);
+              const args = content.join(' ');
+             if(!args) return message.channel.send("que quieres reportar?")
+            let channel = bot.channels.get("497194372966645773")
+            const embed = new Discord.RichEmbed ()
+             .setAuthor (message.author.username)
+             .addField ("Bug:", args)
+           
+       .setColor(randomColor);
+             channel.send(embed)
+             message.delete()
+             message.channel.send(`:mailbox_with_mail: ${message.author.username} tu bug a sido reportado! :mailbox_with_mail:`)
+            }
   });
 bot.login(process.env.TOKEN);
