@@ -308,7 +308,7 @@ message.author.send(embed);
     const SayMessage = content.join(' ');
              if(!SayMessage) return message.channel.send("que quieres que dija")
             const embed = new Discord.RichEmbed ()
-             .setTitle (SayMessage)
+             .setDescription (SayMessage)
              .setColor("#20e510")
              message.channel.send(embed)
              message.delete().catch(O_o=>{});
