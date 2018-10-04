@@ -309,6 +309,7 @@ message.author.send(embed);
              if(!SayMessage) return message.channel.send("que quieres que dija")
             const embed = new Discord.RichEmbed ()
              .setDescription (SayMessage)
+	     .setFooter(`AssuMix | ${message.createdAt}`, "https://cdn.discordapp.com/avatars/358699155662700554/4da061003fd895e123dee103cbcaec0e.png?size=2048")
              .setColor("#20e510")
              message.channel.send(embed)
              message.delete().catch(O_o=>{});
@@ -323,6 +324,7 @@ message.author.send(embed);
             const embed = new Discord.RichEmbed ()
              .setAuthor (message.author.username)
              .addField ("Bug:", args)
+	     .setFooter(`AssuMix | ${message.createdAt}`, "https://cdn.discordapp.com/avatars/358699155662700554/4da061003fd895e123dee103cbcaec0e.png?size=2048")
            
        .setColor(randomColor);
              channel.send(embed)
