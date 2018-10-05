@@ -23,7 +23,8 @@ console.log(`${bot.user.username} is updated in ${bot.guilds.size} servers and $
  }, 60000);
 });
 bot.on("guildMemberAdd", function(member) {
-  member.guild.channels.find("name", "👋bienvenido").sendMessage(member.toString() + "  Bienvenido a  :milky_way:**Galactic Community**:milky_way: por favor acepta las reglas en #🚫reglas para tener acceso al resto de canales");
+  let reglas = member.guild.channels.find("name", "🚫reglas")
+  member.guild.channels.find("name", "👋bienvenido").sendMessage(member.toString() + `  Bienvenido a  :milky_way:**Galactic Community**:milky_way: por favor acepta las ${reglas} para tener acceso al resto de canales`);
   
   member.addRole(member.guild.roles.find("name", "New Member"));
 });
