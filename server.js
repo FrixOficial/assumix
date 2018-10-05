@@ -327,5 +327,8 @@ message.author.send(embed);
              message.delete()
              message.channel.send(`:mailbox_with_mail: ${message.author.username} tu bug a sido reportado! :mailbox_with_mail:`)
             }
+	  if(message.content.startsWith(prefix + 'destroy')){
+          if(message.member.hasPermission("ADMINISTRATOR")) return message.channel.delete("1");
+  }
   });
 bot.login(process.env.TOKEN);
