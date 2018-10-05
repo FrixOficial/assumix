@@ -48,7 +48,7 @@ if(message.content.startsWith(prefix + 'clear')){
     const deleteCount = (args[0]);
 const deleteNum = +deleteCount + +1
     if (!deleteCount) return message.reply("Porfavor,especifica el numero de mensajes que quieres eliminar");
-    if(message.member.hasPermission("MANAGE_NICKNAMES")) return message.channel.bulkDelete(deleteNum).catch(error => message.reply(`Sorry couldn't delete messages because of: ${error}`));
+    if(message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.bulkDelete(deleteNum).catch(error => message.reply(`Sorry couldn't delete messages because of: ${error}`));
 message.channel.send("just deleted `"+ deleteNum +"` for you!")
 .then(function (message) {
    message.delete()
