@@ -263,13 +263,7 @@ message.author.send(embed);
     .setImage("https://cdn.discordapp.com/attachments/476898910342873099/495783944780775424/risa.gif")
     message.channel.send(embed)
   }
-	  if(message.content.startsWith(prefix + 'dance')){
-    let user = message.mentions.users.first() || message.author;
-    const embed = new Discord.RichEmbed()
-    .setTitle("🎶🎶🎶")
-    .setImage("https://cdn.discordapp.com/attachments/476898910342873099/495783965991501825/platano.gif")
-    message.channel.send(embed)
-  }
+
 	  if(message.content.startsWith(prefix + 'lag')){
     let user = message.mentions.users.first() || message.author;
     const embed = new Discord.RichEmbed()
@@ -328,5 +322,69 @@ message.author.send(embed);
 	  if(message.content.startsWith(prefix + 'destroy')){
           if(message.member.hasPermission("ADMINISTRATOR")) return message.channel.delete("1");
   }
+	  if (message.content.startsWith(prefix + "dance")) {
+result = Math.floor(Math.random() * 10) + 1;   	
+      if (result == 1) {
+         const embed = new Discord.RichEmbed()
+              .setTitle(`🎶🎶🎶`)
+              .setImage("https://cdn.discordapp.com/attachments/498186062284193792/500119125343993857/borrar.gif")
+              .setColor("#20e510")
+           message.channel.send(embed)
+    	} else if (result == 2) {
+         const embed = new Discord.RichEmbed()
+              .setTitle(`🎶🎶🎶`)
+              .setImage("https://cdn.discordapp.com/attachments/498186062284193792/500119369347760128/frix.gif")
+              .setColor("#20e510")
+           message.channel.send(embed)
+    	} else if (result == 3) {
+         const embed = new Discord.RichEmbed()
+              .setTitle(`🎶🎶🎶`)
+              .setImage("https://cdn.discordapp.com/attachments/498186062284193792/500119394484092941/oficial.gif")
+              .setColor("#20e510")
+           message.channel.send(embed)
+      } else if (result == 4) {
+         const embed = new Discord.RichEmbed()
+              .setTitle(`🎶🎶🎶`)
+              .setImage("https://cdn.discordapp.com/attachments/498186062284193792/500119480236769300/gei.gif")
+              .setColor("#20e510")
+           message.channel.send(embed)
+      } else if (result == 5) {
+         const embed = new Discord.RichEmbed()
+              .setTitle(`🎶🎶🎶`)
+              .setImage("https://cdn.discordapp.com/attachments/498186062284193792/500120452493082655/FineDampGecko-size_restricted.gif")
+              .setColor("#20e510")
+           message.channel.send(embed)
+      } else if (result == 6) {
+         const embed = new Discord.RichEmbed()
+              .setTitle(`🎶🎶🎶`)
+              .setImage("https://cdn.discordapp.com/attachments/498186062284193792/500123039740985345/Festive_Maracas_dance.gif")
+              .setColor("#20e510")
+           message.channel.send(embed)
+      } else if (result == 7) {
+         const embed = new Discord.RichEmbed()
+              .setTitle(`🎶🎶🎶`)
+              .setImage("https://cdn.discordapp.com/attachments/498186062284193792/500123935497650177/130dd832e7293b93903a52fd858f832a.gif")
+              .setColor("#20e510")
+           message.channel.send(embed)
+      } else if (result == 8) {
+         const embed = new Discord.RichEmbed()
+              .setTitle(`🎶🎶🎶`)
+              .setImage("https://cdn.discordapp.com/attachments/498186062284193792/500124178872008704/Bmo-dance.gif")
+              .setColor("#20e510")
+           message.channel.send(embed)
+      } else if (result == 9) {
+         const embed = new Discord.RichEmbed()
+              .setTitle(`🎶🎶🎶`)
+              .setImage("https://cdn.discordapp.com/attachments/476898910342873099/495783965991501825/platano.gif")
+              .setColor("#20e510")
+           message.channel.send(embed)
+      } else if (result == 10) {
+         const embed = new Discord.RichEmbed()
+              .setTitle(`🎶🎶🎶`)
+              .setImage("https://cdn.discordapp.com/attachments/498186062284193792/500124849377771540/tenor.gif")
+              .setColor("#20e510")
+           message.channel.send(embed)
+    }
+      }
   });
 bot.login(process.env.TOKEN);
