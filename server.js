@@ -345,7 +345,7 @@ result = Math.floor(Math.random() * 10) + 1;
       } else if (result == 4) {
          const embed = new Discord.RichEmbed()
               .setTitle(`🎶🎶🎶`)
-              .setImage("https://cdn.discordapp.com/attachments/498186062284193792/500119480236769300/gei.gif")
+              .setImage("https://cdn.discordapp.com/attachments/498186062284193792/500125074830131220/tenor_1.gif")
               .setColor("#20e510")
            message.channel.send(embed)
       } else if (result == 5) {
