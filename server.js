@@ -156,9 +156,8 @@ if(message.content.startsWith(prefix + 'help')){
   const randomColor = "#000000".replace(/0/g, function () { return (~~(Math.random() * 16)).toString(16); });
 const embed = new Discord.RichEmbed()
 .setTitle("List of commands")
-.setURL("https://asumix.glitch.me/")
 .addField('*ping', 'show you the ping of the bot')
-.addField('*invite', 'with this command you can invite meto your server!')
+.addField('*invite', 'with this command you can invite me to your server!')
 .addField('*flip', 'throw a coin!')
 .addField('*warn + mention + reason', 'warn a user')
 .addField('*say', 'the bot say whatever you want')
@@ -170,13 +169,12 @@ const embed = new Discord.RichEmbed()
 message.author.send(embed);
 }
   if (message.content.startsWith(prefix + "help")){
-           message.channel.send('the commands have been sent to you DM :mailbox_with_mail:')
+           message.channel.send('the commands have been sent to your DM :mailbox_with_mail:')
                  }
 if(message.content.startsWith(prefix + 'ayuda')){
   const randomColor = "#000000".replace(/0/g, function () { return (~~(Math.random() * 16)).toString(16); });
 const embed = new Discord.RichEmbed()
 .setTitle("Lista de comandos")
-.setURL("https://asumix.glitch.me/")
 .addField('*ping', 'te muestra el ping del bot')
 .addField('*invite', 'con este comando me puedes invitar a tu server!')
 .addField('*flip', 'lanza una moneda!')
