@@ -131,7 +131,7 @@ console.log('The user: ' + message.author.username + ' has invite me in ' + mess
               .setImage("https://cdn.glitch.com/18273d7a-dad8-4858-b2a4-9430a409e305%2FHEADS.PNG?1525351625788")
               .setTitle("HEADS!")
          .setColor(randomColor)
-              .setFooter(`cookie table | ${message.createdAt}`, "https://cdn.discordapp.com/avatars/418232048210149388/69e9c25ba52ba9cbbd810599f4bc6518.png");
+              .setFooter(`AssuMix | ${message.createdAt}`, "https://cdn.discordapp.com/avatars/358699155662700554/4da061003fd895e123dee103cbcaec0e.png?size=2048");
            message.channel.send(embed)
         console.log(`heads`)
     	} else if (result == 2) {
