@@ -161,7 +161,7 @@ const embed = new Discord.RichEmbed()
 .addField('*suggest', 'makes a suggestion for the bot!')
 .addField('*choose', 'the bot choose between two options')
 .addField('*destroy', 'destroy the text channel where is written this command (need Administrator)')
-.addField('*clear + amount', 'delete the number of messages what you specified(need the Manage Messages Permissions')
+.addField('*clear + amount', 'delete the number of messages what you specified(need the Manage Messages Permissions)')
 .addField('*kick + mention + reason' , 'use this command to kick the mention user')
 .addField('*ban + mention + reason', 'use this command to ban the mention user')
 .setColor(randomColor);
