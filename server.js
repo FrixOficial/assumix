@@ -150,7 +150,7 @@ namednd.send(`you have been pinged in ${message.guild.name} by ${message.author.
 }
 if(message.content.startsWith(prefix + 'help')){
   console.log(`help has been used in ${message.guild.name} by ${message.author.username}`)
-  const randomColor = "#000000".replace(/0/g, function () { return (~~(Math.random() * 16)).toString(16); });
+  const randomColor = "#20e510".replace(/0/g, function () { return (~~(Math.random() * 16)).toString(16); });
 const embed = new Discord.RichEmbed()
 .setTitle("List of commands")
 .addField('*ping', 'show you the ping of the bot')
@@ -172,7 +172,7 @@ message.author.send(embed);
            message.channel.send('the commands have been sent to your DM :mailbox_with_mail:')
                  }
 if(message.content.startsWith(prefix + 'ayuda')){
-  const randomColor = "#000000".replace(/0/g, function () { return (~~(Math.random() * 16)).toString(16); });
+  const randomColor = "#20e510".replace(/0/g, function () { return (~~(Math.random() * 16)).toString(16); });
 const embed = new Discord.RichEmbed()
 .setTitle("Lista de comandos")
 .addField('*ping', 'te muestra el ping del bot')
