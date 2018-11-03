@@ -389,5 +389,69 @@ result = Math.floor(Math.random() * 10) + 1;
            message.channel.send(embed)
     }
       }
+	  if (message.content.startsWith(prefix + "suicide")) {
+result = Math.floor(Math.random() * 10) + 1;   	
+      if (result == 1) {
+         const embed = new Discord.RichEmbed()
+              .setDescription(`**${message.author.username}** se ha suicidado D:`)
+              .setImage("https://i.imgur.com/4JaVy5S.gif")
+              .setColor("#20e510")
+           message.channel.send(embed)
+    	} else if (result == 2) {
+         const embed = new Discord.RichEmbed()
+              .setDescription(`**${message.author.username}** se ha suicidado D:`)
+              .setImage("https://i.imgur.com/604w7Uk.gif")
+              .setColor("#20e510")
+           message.channel.send(embed)
+    	} else if (result == 3) {
+         const embed = new Discord.RichEmbed()
+              .setDescription(`**${message.author.username}** se ha suicidado D:`)
+              .setImage("https://i.imgur.com/ncvcNHp.gif")
+              .setColor("#20e510")
+           message.channel.send(embed)
+      } else if (result == 4) {
+         const embed = new Discord.RichEmbed()
+              .setDescription(`**${message.author.username}** se ha suicidado D:`)
+              .setImage("https://cdn.discordapp.com/attachments/399448944889036801/503052598803300352/ewe.gif")
+              .setColor("#20e510")
+           message.channel.send(embed)
+      } else if (result == 5) {
+         const embed = new Discord.RichEmbed()
+              .setDescription(`**${message.author.username}** se ha suicidado D:`)
+              .setImage("https://tenor.com/vwKs.gif")
+              .setColor("#20e510")
+           message.channel.send(embed)
+      } else if (result == 6) {
+         const embed = new Discord.RichEmbed()
+              .setDescription(`**${message.author.username}** se ha suicidado D:`)
+              .setImage("https://cdn.discordapp.com/attachments/399448944889036801/503051811012214793/pistol.gif")
+              .setColor("#20e510")
+           message.channel.send(embed)
+      } else if (result == 7) {
+         const embed = new Discord.RichEmbed()
+              .setDescription(`**${message.author.username}** se ha suicidado D:`)
+              .setImage("https://cdn.discordapp.com/attachments/399448944889036801/505461231679963147/suicide2.gif")
+              .setColor("#20e510")
+           message.channel.send(embed)
+      } else if (result == 8) {
+         const embed = new Discord.RichEmbed()
+              .setDescription(`**${message.author.username}** se ha suicidado D:`)
+              .setImage("https://cdn.discordapp.com/attachments/399448944889036801/505461250931687445/suicide5.gif")
+              .setColor("#20e510")
+           message.channel.send(embed)
+      } else if (result == 9) {
+         const embed = new Discord.RichEmbed()
+              .setDescription(`**${message.author.username}** se ha suicidado D:`)
+              .setImage("https://cdn.discordapp.com/attachments/399448944889036801/505461272544935950/suicide3.gif")
+              .setColor("#20e510")
+           message.channel.send(embed)
+      } else if (result == 10) {
+         const embed = new Discord.RichEmbed()
+              .setDescription(`**${message.author.username}** se ha suicidado D:`)
+              .setImage("https://cdn.discordapp.com/attachments/399448944889036801/505461296624566283/suicide4.gif")
+              .setColor("#20e510")
+           message.channel.send(embed)
+    }
+      }
   });
 bot.login(process.env.TOKEN);
