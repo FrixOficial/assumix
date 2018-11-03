@@ -288,13 +288,7 @@ message.author.send(embed);
     .setImage("https://cdn.discordapp.com/attachments/476898910342873099/495786628338417694/sad.gif")
     message.channel.send(embed)
   }
-	  if(message.content.startsWith(prefix + 'punch')){
-    let user = message.mentions.users.first() || message.author;
-    const embed = new Discord.RichEmbed()
-    .setTitle(`${message.author.username} golpeo a ${user.username}`)
-    .setImage("https://cdn.discordapp.com/attachments/476898910342873099/495789026545238016/punch.gif")
-    message.channel.send(embed)
-  }
+
 	  if(message.content.startsWith(prefix + 'esay')){          
     const content = message.content.split(' ').slice(1);
     const SayMessage = content.join(' ');
@@ -449,6 +443,72 @@ result = Math.floor(Math.random() * 10) + 1;
          const embed = new Discord.RichEmbed()
               .setDescription(`**${message.author.username}** se ha suicidado D:`)
               .setImage("https://cdn.discordapp.com/attachments/399448944889036801/505461296624566283/suicide4.gif")
+              .setColor("#20e510")
+           message.channel.send(embed)
+    }
+      }
+	  if (message.content.startsWith(prefix + "punch")) {
+let user = message.mentions.users.first();
+    if(!user) return message.channel.send("Tienes que mencionar a alguien!");
+      result = Math.floor(Math.random() * 10) + 1;   	
+      if (result == 1) {
+         const embed = new Discord.RichEmbed()
+              .setDescription(`**${message.author.username}** golpeo a **${user.username}**`)
+              .setImage("")
+              .setColor("#20e510")
+           message.channel.send(embed)
+    	} else if (result == 2) {
+         const embed = new Discord.RichEmbed()
+              .setDescription(`**${message.author.username}** golpeo a **${user.username}**`)
+              .setImage("")
+              .setColor("#20e510")
+           message.channel.send(embed)
+    	} else if (result == 3) {
+         const embed = new Discord.RichEmbed()
+              .setDescription(`**${message.author.username}** golpeo a **${user.username}**`)
+              .setImage("")
+              .setColor("#20e510")
+           message.channel.send(embed)
+      } else if (result == 4) {
+         const embed = new Discord.RichEmbed()
+              .setDescription(`**${message.author.username}** golpeo a **${user.username}**`)
+              .setImage("")
+              .setColor("#20e510")
+           message.channel.send(embed)
+      } else if (result == 5) {
+         const embed = new Discord.RichEmbed()
+              .setDescription(`**${message.author.username}** golpeo a **${user.username}**`)
+              .setImage("")
+              .setColor("#20e510")
+           message.channel.send(embed)
+      } else if (result == 6) {
+         const embed = new Discord.RichEmbed()
+              .setDescription(`**${message.author.username}** golpeo a **${user.username}**`)
+              .setImage("")
+              .setColor("#20e510")
+           message.channel.send(embed)
+      } else if (result == 7) {
+         const embed = new Discord.RichEmbed()
+              .setDescription(`**${message.author.username}** golpeo a **${user.username}**`)
+              .setImage("")
+              .setColor("#20e510")
+           message.channel.send(embed)
+      } else if (result == 8) {
+         const embed = new Discord.RichEmbed()
+              .setDescription(`**${message.author.username}** golpeo a **${user.username}**`)
+              .setImage("")
+              .setColor("#20e510")
+           message.channel.send(embed)
+      } else if (result == 9) {
+         const embed = new Discord.RichEmbed()
+              .setDescription(`**${message.author.username}** golpeo a **${user.username}**`)
+              .setImage("https://cdn.discordapp.com/attachments/498186062284193792/500122211495968779/OUCH.gif")
+              .setColor("#20e510")
+           message.channel.send(embed)
+      } else if (result == 10) {
+         const embed = new Discord.RichEmbed()
+              .setDescription(`**${message.author.username}** golpeo a **${user.username}**`)
+              .setImage("https://cdn.discordapp.com/attachments/476898910342873099/495789026545238016/punch.gif")
               .setColor("#20e510")
            message.channel.send(embed)
     }
