@@ -513,5 +513,27 @@ let user = message.mentions.users.first();
            message.channel.send(embed)
     }
       }
+	  if (message.content.startsWith(prefix + "question")) {   
+    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send('No tienes permiso para ejecutar este comando.')
+    if(!args.join(' ')) return message.channel.send('Agrege una pregunta para la encuesta.')
+  message.delete()
+  const embed = new Discord.RichEmbed()
+        .setAuthor('Encuesta')
+        .setDescription('**'+args.join(' ')+'**')
+        .addField('Opción 1', '\u2705 Sí', true)
+        .addField('Opción 2', '\u274c No', true)
+        .setColor("RANDOM")
+        .setTimestamp()
+
+  message.channel.send({embed})
+  .then(m => {
+          setTimeout(() => {
+            m.react("\u2705")
+          }, 200);
+          setTimeout(() => {
+            m.react("\u274c")
+          }, 400);
+        })
+  }
   });
 bot.login(process.env.TOKEN);
