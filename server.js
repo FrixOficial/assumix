@@ -569,5 +569,20 @@ let user = message.mentions.users.first();
           }, 400);
         })
   }
+	  if (message.content.startsWith(prefix + "unwarn")) {   
+    let warns = JSON.parse(fs.readFileSync("./warns.json", "utf8"));
+  let userm = message.mentions.users.first()
+  let user = message.guild.member(userm)
+
+  if (!message.member.hasPermission('KICK_MEMBERS')) return message.channel.send(`Este comando requiere el permiso "Expulsar Miembros".`);
+    if (!user) return message.channel.send('Debes mencionar a un usuario que tenga advertencias.')
+  if (warns[user.id].warns == 0) return message.channel.send('El usuario no tiene advertencias.')
+    warns[user.id].warns--;
+  fs.writeFile("./warns.json", JSON.stringify(warns), (err) => {
+    if (err) console.log(err)
+    message.channel.send(':white_check_mark:  |  Le he quitado 1 advertencia al usuario __**'+userm.username+'#'+userm.discriminator+'**__\nNúmero de Advertencias: '+warns[user.id].warns)
+
+  });
+}
   });
 bot.login(process.env.TOKEN);
