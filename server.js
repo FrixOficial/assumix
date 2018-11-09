@@ -3,6 +3,7 @@ const Discord = require("discord.js");
 const bot = new Discord.Client()
 const http = require('http');
 const express = require('express');
+const fs = require('fs');
 const app = express();
 app.get("/", (request, response) => {
   console.log("Ping Received");
@@ -193,16 +194,49 @@ message.author.send(embed);
   if (message.content.startsWith(prefix + "ayuda")){
            message.channel.send('la lista de comandos ha sido enviada a tu DM :mailbox_with_mail:')
                  }
-     if(message.content.startsWith(prefix + 'warn')){
-    let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-  if(!kUser) return message.channel.send("WHAT! Can't find that user!");
-           if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("No can do pal!");
-     if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("That person can't be warned!");
-             let reason = args.join(" ").slice(22);
-       if (!reason) return message.channel.send(`What do you want to warn, ${kUser} for?`);
-       kUser.send(`Listen, ${kUser} you have been warned in, ${message.guild} and by, ${message.author.username} for, ${reason}`)
-       message.channel.send(`${kUser} has been warned for ${reason} by ${message.author.username}`)
-     }
+     if (message.content.startsWith(prefix + "warn")) {
+    let warns = JSON.parse(fs.readFileSync("./warns.json", "utf8"));
+    let userm = message.mentions.users.first()
+      let user = message.guild.member(userm)
+       var reason = message.content.split(' ').slice(2).join(' ');
+       if (!message.member.hasPermission('KICK_MEMBERS'))
+       return message.channel.send(`Este comando requiere el permiso "Expulsar Miembros".`);
+       if (!user)
+       return message.channel.send('Mencione a alguien para advertir.');
+       if (!reason)
+       return message.channel.send('Escriba la razón de la advertencia.')
+       if (message.content.includes(message.author.id)) return message.channel.send('No puedes advertirte a ti mismo.')
+
+        if(!warns[user.id]) warns[user.id] = {
+      warns: 0
+    };
+    warns[user.id].warns++;
+    fs.writeFile("./warns.json", JSON.stringify(warns), (err) => {
+      if (err) console.log(err)
+    });
+const embed = new Discord.RichEmbed()
+        .setTitle(':warning: ¡Has sido advertido!')
+        .setDescription('Has recibido una advertencia proveniente de **'+message.guild.name+'**. Si llegas a un total de 3 advertencias, serás expulsado.')
+        .addField('Razón', `${reason}`)
+        .addField('Admin/mod responsable', `${message.author.username}#${message.author.discriminator}`)
+        .setColor(0xecd412)
+        .setFooter(warns[user.id].warns+'/3')
+        .setTimestamp()
+        user.send({embed})
+
+        message.channel.send(':white_check_mark:  |  He advertido al usuario __**'+userm.username+'#'+userm.discriminator+'**__\nRazón: **'+reason+'**\nNúmero de Advertencias: '+warns[user.id].warns+'\nModerador responsable: '+message.author.tag)
+
+       if(warns[user.id].warns >= 3){
+       user.kick()
+        userm.send(':warning:  |  Has sido expulsado de **'+message.guild.name+'.**\n```diff\n-Datos de la expulsión:\nRazón: Has alcanzado las 3 advertencias.\nADMIN/MOD: Chocolat#8583\n```')
+         warns[user.id] = {
+         warns: 0
+         }
+       fs.writeFile("./warns.json", JSON.stringify(warns), (err) => {
+      if (err) console.log(err)
+    });
+       }
+}
     if(message.content.startsWith(prefix + 'kick')){
           
     let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
