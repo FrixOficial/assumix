@@ -216,7 +216,7 @@ message.author.send(embed);
     });
 const embed = new Discord.RichEmbed()
         .setTitle(':warning: ¡Has sido advertido!')
-        .setDescription('Has recibido una advertencia proveniente de **'+message.guild.name+'**. Si llegas a un total de 3 advertencias, serás expulsado.')
+        .setDescription('Has recibido una advertencia proveniente de **'+message.guild.name+'**.')
         .addField('Razón', `${reason}`)
         .addField('Admin/mod responsable', `${message.author.username}#${message.author.discriminator}`)
         .setColor(0xecd412)
@@ -226,9 +226,9 @@ const embed = new Discord.RichEmbed()
 
         message.channel.send(':white_check_mark:  |  He advertido al usuario __**'+userm.username+'#'+userm.discriminator+'**__\nRazón: **'+reason+'**\nNúmero de Advertencias: '+warns[user.id].warns+'\nModerador responsable: '+message.author.tag)
 
-       if(warns[user.id].warns >= 3){
+       if(warns[user.id].warns >= 15){
        user.kick()
-        userm.send(':warning:  |  Has sido expulsado de **'+message.guild.name+'.**\n```diff\n-Datos de la expulsión:\nRazón: Has alcanzado las 3 advertencias.\nADMIN/MOD: Chocolat#8583\n```')
+        userm.send(':warning:  |  Has sido expulsado de **'+message.guild.name+'.**\n```diff\n-Datos de la expulsión:\nRazón: Has alcanzado las 15 advertencias.```')
          warns[user.id] = {
          warns: 0
          }
