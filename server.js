@@ -584,5 +584,21 @@ let user = message.mentions.users.first();
 
   });
 }
+	  if(message.content.startsWith(prefix + "denunciar")){
+  const randomColor = "#20e510".replace(/0/g, function () { return (~~(Math.random() * 16)).toString(16); });
+             console.log('The user: ' + message.author.username + ' has used *denunciar in ' + message.guild.name + ' in channel #' + message.channel.name)
+              const content = message.content.split(' ').slice(1);
+              const args = content.join(' ');
+             if(!args) return message.channel.send("que quieres reportar?")
+            let channel = bot.channels.get("525325694079598593")
+            const embed = new Discord.RichEmbed ()
+             .setAuthor (message.author.username)
+             .addField ("Denuncia:", args)
+	     .setFooter(`AssuMix | ${message.createdAt}`, "https://cdn.discordapp.com/avatars/358699155662700554/4da061003fd895e123dee103cbcaec0e.png?size=2048")
+           
+       .setColor(randomColor);
+             channel.send(embed)
+             message.delete()
+            }
   });
 bot.login(process.env.TOKEN);
