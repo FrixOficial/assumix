@@ -593,7 +593,7 @@ let user = message.mentions.users.first();
             let channel = bot.channels.get("525325694079598593")
             const embed = new Discord.RichEmbed ()
              .setAuthor (message.author.username)
-             .addField ("Denuncia:", args)
+             .addField ("Reporte:", args)
 	     .setFooter(`AssuMix | ${message.createdAt}`, "https://cdn.discordapp.com/avatars/358699155662700554/4da061003fd895e123dee103cbcaec0e.png?size=2048")
            
        .setColor(randomColor);
