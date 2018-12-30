@@ -600,5 +600,83 @@ let user = message.mentions.users.first();
              channel.send(embed)
              message.delete()
             }
+	  if(message.content.startsWith(prefix + 'mute')){
+              let miembro = message.mentions.members.first();
+    let role = message.guild.roles.find("name", "Muted");
+    let perms = message.member.hasPermission("MANAGE_ROLES_OR_PERMISSIONS");
+    let args2 = args.join(' ')
+    let razon = args2.split(' ').slice(1).join(' ');
+
+    if(!perms) return message.channel.send("No tienes el rango requerido para usar este comando.");
+    if(message.mentions.users.size < 1) return message.reply("Debes mencionar a alguien para silenciarlo.").catch(console.error);
+    if (message.content.includes(message.author.id)) return message.channel.send('No puedes silenciarte a ti mismo.')
+    if(!role) {
+    message.guild.createRole({
+  name: 'Muted',
+  color: '#747474',
+  position: 1
+     
+}).then(role => {
+    var canales = message.guild.channels;
+    var role = message.guild.roles.find("name", "Muted")
+    var rol = message.guild.roles.get(role.id);
+
+    canales.forEach(k => k.overwritePermissions(rol.id, {
+        SEND_MESSAGES: false,
+        ADD_REACTIONS: false,
+        SPEAK: false
+    }))
+  message.channel.send('Rol **"Silenciado"** no encontrado. El rol fue creado automáticamente.');
+  
+  if (!razon) {
+  miembro.addRole(role).catch(console.error);
+  const embed = new Discord.RichEmbed()
+    .setTitle(":mute: Usuario silenciado")
+    .setDescription(`El usuario **${miembro.user.username}** fue silenciado.`)
+    .addField("Razón:", `Sin razón.`)
+    .addField("Admin/mod responsable:", `${message.author.username}#${message.author.discriminator}`)
+    .setTimestamp()
+    .setColor(0xFFB400)
+    message.channel.send({embed});
+    } else {
+  miembro.addRole(role).catch(console.error);
+  const embed = new Discord.RichEmbed()
+    .setTitle(":mute: Usuario silenciado")
+    .setDescription(`El usuario **${miembro.user.username}** fue silenciado.`)
+    .addField("Razón:", `${razon}`)
+    .addField("Admin/mod responsable:", `${message.author.username}#${message.author.discriminator}`)
+    .setTimestamp()
+    .setColor(0xFFB400)
+    message.channel.send({embed});
+}
+    });
+      return;
+    }
+    if(!razon) {
+    message.delete()
+    miembro.addRole(role).catch(console.error);
+    const embed = new Discord.RichEmbed()
+    .setTitle(":mute: Usuario silenciado")
+    .setDescription(`El usuario **${miembro.user.username}** fue silenciado.`)
+    .addField("Razón:", `Sin Razón.`)
+    .addField("Admin/mod responsable:", `${message.author.username}#${message.author.discriminator}`)
+    .setTimestamp()
+    .setColor(0xFFB400)
+    message.channel.send({embed});
+    } else {
+
+    message.delete()
+    miembro.addRole(role).catch(console.error);
+    const embed = new Discord.RichEmbed()
+    .setTitle(":mute: Usuario silenciado")
+    .setDescription(`El usuario **${miembro.user.username}** fue silenciado.`)
+    .addField("Razón:", `${razon}`)
+    .addField("Admin/mod responsable:", `${message.author.username}#${message.author.discriminator}`)
+    .setTimestamp()
+    .setColor(0xFFB400)
+    message.channel.send({embed});
+
+}
+}
   });
 bot.login(process.env.TOKEN);
