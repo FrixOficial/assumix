@@ -220,13 +220,13 @@ const embed = new Discord.RichEmbed()
         .addField('Razón', `${reason}`)
         .addField('Admin/mod responsable', `${message.author.username}#${message.author.discriminator}`)
         .setColor(0xecd412)
-        .setFooter(warns[user.id].warns+'/3')
+        .setFooter(warns[user.id].warns+'/5')
         .setTimestamp()
         user.send({embed})
 
         message.channel.send(':white_check_mark:  |  He advertido al usuario __**'+userm.username+'#'+userm.discriminator+'**__\nRazón: **'+reason+'**\nNúmero de Advertencias: '+warns[user.id].warns+'\nModerador responsable: '+message.author.tag)
 
-       if(warns[user.id].warns >= 15){
+       if(warns[user.id].warns >= 5){
        user.kick()
         userm.send(':warning:  |  Has sido expulsado de **'+message.guild.name+'.**\n```diff\n-Datos de la expulsión:\nRazón: Has alcanzado las 15 advertencias.```')
          warns[user.id] = {
