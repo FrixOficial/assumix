@@ -219,17 +219,29 @@ const embed = new Discord.RichEmbed()
 }
     if(message.content.startsWith(prefix + 'kick')){
           
-    let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-    if(!kUser) return message.channel.send("WHAT! Can't find that user!");
-    if(!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send("No can do pal!");
-     if(kUser.hasPermission("KICK_MEMBERS")) return message.channel.send("That person can't be kicked!");
-       let reason = args.join(" ").slice(22);
-       kUser.send(`${kUser} you have been kicked in, ${message.guild} and by, ${message.author.username} for, ${reason}`)
-    message.guild.member(kUser).kick(kUser)
-.catch(error => message.reply(`Sorry couldn't kick ${kUser.user.username} because of: ${error}`));
-    message.channel.send(`just kicked ${kUser.user.username} for ${reason}`);
-      console.log(`just kicked ${kUser.user.username} for ${reason}`)
-    }
+    let user = message.mentions.users.first();
+    let args2 = args.join(' ')
+        let razon = args2.split(' ').slice(1).join(' ');
+
+        if (!message.member.hasPermission("KICK_MEMBERS")) return message.reply("No tienes el rango requerido.")
+        if (message.mentions.users.size < 1) return message.reply('Debes mencionar a alguien para expulsarlo.').catch(console.error);
+        if (!razon) return message.channel.send('Escriba una razon para expulsarlo.\nUso: `kick @username [razon]`');
+        if (message.content.includes(message.author.id)) return message.channel.send('No puedes expulsarte a ti mismo.')
+        if (!message.guild.member(user).kickable) return message.reply('No puedo expulsar al usuario mencionado. Es posible que no tenga el rango requerido o el usuario es superior a mí.');
+
+        message.delete();
+        message.guild.member(user).kick(razon);
+        const embed = new Discord.RichEmbed()
+        .setTitle(":warning: Usuario Expulsado.")
+        .setDescription(`El usuario **${user.username}** fue expulsado del servidor.\n**ID:** ${user.id}`)
+        .addField("Razón:", `${razon}`)
+        .addField("Admin/mod responsable:", `${message.author.username}#${message.author.discriminator}`)
+        .setTimestamp()
+        .setColor(0xECD132)
+        message.channel.send({embed});
+        user.send(':warning:  |  Has sido expulsado de **'+message.guild.name+'.**\n```diff\n-Datos de la expulsión:\nRazón: '+razon+'\nADMIN/MOD: '+message.author.username+'#'+message.author.discriminator+'\n```')
+    
+}
     if(message.content.startsWith(prefix + 'ban')){
           
     let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
