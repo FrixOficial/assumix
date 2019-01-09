@@ -121,27 +121,7 @@ console.log('The user: ' + message.author.username + ' has invite me in ' + mess
              message.delete()
              message.channel.send(`:mailbox_with_mail: ${message.author.username} you suggestion has been reported! :mailbox_with_mail:`)
             }
-     if (message.content.startsWith(prefix + "flip")) {
-      const randomColor = "#000000".replace(/0/g, function () { return (~~(Math.random() * 16)).toString(16); });
-    	var result = Math.floor((Math.random() * 2) + 1);
-    	if (result == 1) {
-         const embed = new Discord.RichEmbed()
-              .setImage("https://cdn.glitch.com/18273d7a-dad8-4858-b2a4-9430a409e305%2FHEADS.PNG?1525351625788")
-              .setTitle("HEADS!")
-         .setColor(randomColor)
-              .setFooter(`AssuMix | ${message.createdAt}`, "https://cdn.discordapp.com/avatars/358699155662700554/4da061003fd895e123dee103cbcaec0e.png?size=2048");
-           message.channel.send(embed)
-        console.log(`heads`)
-    	} else if (result == 2) {
-         const embed = new Discord.RichEmbed()
-              .setImage("https://cdn.glitch.com/18273d7a-dad8-4858-b2a4-9430a409e305%2FTAIL.PNG?1525351626470")
-              .setTitle("TAILS!!")
-         .setColor(randomColor)
-               .setFooter(`AssuMix | ${message.createdAt}`, "https://cdn.discordapp.com/avatars/358699155662700554/4da061003fd895e123dee103cbcaec0e.png?size=2048");
-           message.channel.send(embed)
-         console.log(`tails`)
-    	}
-}
+     
 if (message.content === '<@358699155662700554>') {
 const namednd = bot.channels.get('496421380821352457')
 const nameisdnd = bot.channels.get('496422171644788776')
@@ -271,67 +251,7 @@ const embed = new Discord.RichEmbed()
     .setImage(user.displayAvatarURL)
     .setColor("#20e510")
     message.channel.send(embed)
-  }
-	  if(message.content.startsWith(prefix + 'rip')){
-    let user = message.mentions.users.first() || message.author;
-    const embed = new Discord.RichEmbed()
-    .setTitle("RIP")
-    .setImage("https://cdn.pixabay.com/photo/2013/07/13/12/32/tombstone-159792_960_720.png")
-    message.channel.send(embed)
-  }
-	  if(message.content.startsWith(prefix + 'facepalm')){
-    let user = message.mentions.users.first() || message.author;
-    const embed = new Discord.RichEmbed()
-    .setTitle("Facepalm")
-    .setImage("https://cdn.discordapp.com/attachments/476898910342873099/495781447609614400/faceplam.gif")
-    message.channel.send(embed)
-  }
-	  if(message.content.startsWith(prefix + 'reference')){
-    let user = message.mentions.users.first() || message.author;
-    const embed = new Discord.RichEmbed()
-    .setTitle("Entendi esa referencia")
-    .setImage("https://cdn.discordapp.com/attachments/476898910342873099/495782969697370123/entendiesareferencia.gif")
-    message.channel.send(embed)
-  }
-	  if(message.content.startsWith(prefix + 'laugh')){
-    let user = message.mentions.users.first() || message.author;
-    const embed = new Discord.RichEmbed()
-    .setTitle("que chistoso tu chiste")
-    .setImage("https://cdn.discordapp.com/attachments/476898910342873099/495783944780775424/risa.gif")
-    message.channel.send(embed)
-  }
 
-	  if(message.content.startsWith(prefix + 'lag')){
-    let user = message.mentions.users.first() || message.author;
-    const embed = new Discord.RichEmbed()
-    .setTitle("HAHAHAHAAHA")
-    .setImage("https://cdn.discordapp.com/attachments/476898910342873099/495785563933376515/lag.gif")
-    message.channel.send(embed)
-  }
-	  if(message.content.startsWith(prefix + 'kill')){
-    let user = message.mentions.users.first() || message.author;
-    const embed = new Discord.RichEmbed()
-    .setTitle(`${message.author.username} mato a ${user.username}`)
-    .setImage("https://cdn.discordapp.com/attachments/476898910342873099/495786885235605524/kill.gif")
-    message.channel.send(embed)
-  }
-	  if(message.content.startsWith(prefix + 'sad')){
-    let user = message.mentions.users.first() || message.author;
-    const embed = new Discord.RichEmbed()
-    .setTitle(`${message.author.username} esta triste`)
-    .setImage("https://cdn.discordapp.com/attachments/476898910342873099/495786628338417694/sad.gif")
-    message.channel.send(embed)
-  }
-
-	  if(message.content.startsWith(prefix + 'esay')){          
-    const content = message.content.split(' ').slice(1);
-    const SayMessage = content.join(' ');
-             if(!SayMessage) return message.channel.send("que quieres que dija")
-            const embed = new Discord.RichEmbed ()
-             .setDescription (SayMessage)
-             .setColor("#20e510")
-             message.channel.send(embed)
-             message.delete().catch(O_o=>{});
             }
 	  if(message.content.startsWith(prefix + "bugrepport")){
   const randomColor = "#20e510".replace(/0/g, function () { return (~~(Math.random() * 16)).toString(16); });
