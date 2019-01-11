@@ -19,7 +19,7 @@ console.log(`${bot.user.username} is updated in ${bot.guilds.size} servers and $
   setInterval(() => {
    bot.user.setActivity(`Estoy en ${bot.guilds.size} servidores | *ayuda`, { type: 'PLAYING' });
    setTimeout(() => {
-     bot.user.setActivity(`I'm in ${bot.guilds.size} servers | *help`, { type: 'PLAYING' });
+     bot.user.setActivity(`*invite`, { type: 'PLAYING' });
    }, 30000);
  }, 60000);
 });
