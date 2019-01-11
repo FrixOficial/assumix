@@ -90,7 +90,7 @@ if(!choose1) return message.channel.send("TIENES QUE DECIDIR");
 if(!choose2) return message.channel.send("TIENES QUE DECIDIR");
    var result = Math.floor((Math.random() * 2) + 1);
       if (result == 1) {
-        message.channel.send(` I would choose: ${choose1}!`)
+        message.channel.send(` Yo eligo: ${choose1}!`)
 console.log(`I chose ${choose1} over ${choose2}`)
       } else if (result == 2) {
         message.channel.send(`Yo eligo: ${choose2}!`)
@@ -110,7 +110,7 @@ console.log('The user: ' + message.author.username + ' has invite me in ' + mess
              console.log('The user: ' + message.author.username + ' has used *suggestion in ' + message.guild.name + ' in channel #' + message.channel.name)
               const content = message.content.split(' ').slice(1);
               const args = content.join(' ');
-             if(!args) return message.channel.send("what do you want to suggest!?!")
+             if(!args) return message.channel.send("Escribe que quieres sugerir")
             let channel = bot.channels.get("476943907184181278")
             const embed = new Discord.RichEmbed ()
              .setAuthor (message.author.username)
@@ -133,47 +133,25 @@ if(message.content.startsWith(prefix + 'help')){
   console.log(`help has been used in ${message.guild.name} by ${message.author.username}`)
   const randomColor = "#20e510".replace(/0/g, function () { return (~~(Math.random() * 16)).toString(16); });
 const embed = new Discord.RichEmbed()
-.setTitle("List of commands")
-.addField('*ping', 'show you the ping of the bot')
-.addField('*invite', 'with this command you can invite me to your server!')
-.addField('*flip', 'throw a coin!')
-.addField('*warn + mention + reason', 'warn a user')
-.addField('*say', 'the bot say whatever you want')
-.addField('*esay', 'the bot say whatever you want in a embed')
-.addField('*suggest', 'makes a suggestion for the bot!')
-.addField('*choose', 'the bot choose between two options')
-.addField('*destroy', 'destroy the text channel where is written this command (need Administrator)')
-.addField('*clear + amount', 'delete the number of messages what you specified(need the Manage Messages Permissions)')
-.addField('*kick + mention + reason' , 'use this command to kick the mention user')
-.addField('*ban + mention + reason', 'use this command to ban the mention user')
+.setTitle("Lista de comandos")
+.addField('*ping', 'Muestra el ping del bot')
+.addField('*invite', 'utiliza este comando para invitar al bot')
+.addField('*warn + mención + razón', 'Advierte a un usuario')
+.addField('*say', 'El bot dice lo que quieras')
+.addField('*esay', 'Parecido al *say, pero en un embed :o')
+.addField('*suggest', 'hace una sugerencia para el bot')
+.addField('*choose', 'el bot eligue entre dos opciones')
+.addField('*destroy', 'el bot destruye el canal de texto en el que es escrito este comando (Requiere Administrador)')
+.addField('*clear + cantidad', 'borra el numero de mensajes especificado (Requiere Administrar Mensajes)')
+.addField('*kick + mención + razón' , 'usa este comando para expulsar a un usuario')
+.addField('*ban + mention + reason', 'usa este comando para Banear a un usuario')
 .setColor(randomColor);
 message.author.send(embed);
 }
   if (message.content.startsWith(prefix + "help")){
-           message.channel.send('the commands have been sent to your DM :mailbox_with_mail:')
+           message.channel.send('Los comandos han sido enviados a tu DM! :mailbox_with_mail:')
                  }
-if(message.content.startsWith(prefix + 'ayuda')){
-  const randomColor = "#20e510".replace(/0/g, function () { return (~~(Math.random() * 16)).toString(16); });
-const embed = new Discord.RichEmbed()
-.setTitle("Lista de comandos")
-.addField('*ping', 'te muestra el ping del bot')
-.addField('*invite', 'con este comando me puedes invitar a tu server!')
-.addField('*flip', 'lanza una moneda!')
-.addField('*warn + mencion + razon', 'advierte a un usuario')
-.addField('*say', 'el bot dice lo que quieras')
-.addField('*esay', 'el bot dice lo que quieras en un embed')
-.addField('*suggest', 'hace una sugerencia para el bot!')
-.addField('*choose', 'el bot elige entre 2 opciones')
-.addField('*destroy', 'destruye el canal de texto en donde se escribe este comando (necesitas ser Administrador)')
-.addField('*clear + cantidad', 'borra la cantidad de mensajes que especifiques(necesitas el permiso para borrar mensajes)')
-.addField('*kick + mención + razón' , 'usa este comando para kickear al usuario mencionado')
-.addField('*ban + mención + razón' , 'usa este comando para banear al usuario mencionado')
-.setColor(randomColor);
-message.author.send(embed);
-}
-  if (message.content.startsWith(prefix + "ayuda")){
-           message.channel.send('la lista de comandos ha sido enviada a tu DM :mailbox_with_mail:')
-                 }
+
      if (message.content.startsWith(prefix + "warn")) {
     let warns = JSON.parse(fs.readFileSync("./warns.json", "utf8"));
     let userm = message.mentions.users.first()
@@ -243,18 +221,29 @@ const embed = new Discord.RichEmbed()
     
 }
     if(message.content.startsWith(prefix + 'ban')){
-          
-    let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-    if(!kUser) return message.channel.send("WHAT! Can't find that user!");
-    if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("No can do pal!");
-     if(kUser.hasPermission("BAN_MEMBERS")) return message.channel.send("That person can't be banned!");
-       let reason = args.join(" ").slice(22);
-       kUser.send(`${kUser} you have been banned in, ${message.guild} and by, ${message.author.username} for, ${reason}`)
-    message.guild.member(kUser).ban(kUser)
-.catch(error => message.reply(`Lo siento, no puedo banear ${kUser.user.username} porque: ${error}`));
-    message.channel.send(`just banned ${kUser.user.username} for ${reason}`);
-      console.log(`just banned ${kUser.user.username} for ${reason}`)
-    }
+         let user = message.mentions.users.first();
+    let args2 = args.join(' ')
+        let razon = args2.split(' ').slice(1).join(' ');
+
+        if (!message.member.hasPermission("BAN_MEMBERS")) return message.reply('No tienes el rango requerido.');
+        if (message.mentions.users.size < 1) return message.reply('Debes mencionar a alguien para banearlo.').catch(console.error);
+        if (!razon) return message.channel.send('Escriba una razón para banearlo.\nUso: `ch!ban @username [razon]`');
+        if (message.content.includes(message.author.id)) return message.channel.send('No puedes banearte a ti mismo.')
+        if (!message.guild.member(user).bannable) return message.reply('Lo siento, pero no puedo banear al usuario mencionado. Es posible que no tenga el rango requerido o el usuario es superior a mí.');
+        
+        message.delete();
+        message.guild.member(user).ban(razon);
+        const embed = new Discord.RichEmbed()
+        .setTitle(":no_entry_sign: Usuario Baneado.")
+        .setDescription(`El usuario **${user.username}** fue baneado del servidor.\n**ID:** ${user.id}`)
+        .addField("Razón:", `${razon}`)
+        .addField("Admin/mod responsable:", `${message.author.username}#${message.author.discriminator}`)
+        .setTimestamp()
+        .setColor(0xFA3131)
+        message.channel.send({embed});
+        user.send(':no_entry_sign:  |  Has sido baneado de **'+message.guild.name+'.**\n```diff\n-Datos del baneo:\nRazón: '+razon+'\nADMIN/MOD: '+message.author.username+'#'+message.author.discriminator+'\n```')
+
+}
    
 	  if(message.content.startsWith(prefix + 'avatar')){
     let user = message.mentions.users.first() || message.author;
@@ -285,200 +274,7 @@ const embed = new Discord.RichEmbed()
 	  if(message.content.startsWith(prefix + 'destroy')){
           if(message.member.hasPermission("ADMINISTRATOR")) return message.channel.delete("1");
   }
-	  if (message.content.startsWith(prefix + "dance")) {
-result = Math.floor(Math.random() * 10) + 1;   	
-      if (result == 1) {
-         const embed = new Discord.RichEmbed()
-              .setDescription(`**${message.author.username}** se ha puesto a bailar🎶`)
-              .setImage("https://cdn.discordapp.com/attachments/498186062284193792/500119125343993857/borrar.gif")
-              .setColor("#20e510")
-           message.channel.send(embed)
-    	} else if (result == 2) {
-         const embed = new Discord.RichEmbed()
-              .setDescription(`**${message.author.username}** se ha puesto a bailar🎶`)
-              .setImage("https://cdn.discordapp.com/attachments/498186062284193792/500119369347760128/frix.gif")
-              .setColor("#20e510")
-           message.channel.send(embed)
-    	} else if (result == 3) {
-         const embed = new Discord.RichEmbed()
-              .setDescription(`**${message.author.username}** se ha puesto a bailar🎶`)
-              .setImage("https://cdn.discordapp.com/attachments/498186062284193792/500119394484092941/oficial.gif")
-              .setColor("#20e510")
-           message.channel.send(embed)
-      } else if (result == 4) {
-         const embed = new Discord.RichEmbed()
-              .setDescription(`**${message.author.username}** se ha puesto a bailar🎶`)
-              .setImage("https://cdn.discordapp.com/attachments/498186062284193792/500125074830131220/tenor_1.gif")
-              .setColor("#20e510")
-           message.channel.send(embed)
-      } else if (result == 5) {
-         const embed = new Discord.RichEmbed()
-              .setDescription(`**${message.author.username}** se ha puesto a bailar🎶`)
-              .setImage("https://cdn.discordapp.com/attachments/498186062284193792/500120452493082655/FineDampGecko-size_restricted.gif")
-              .setColor("#20e510")
-           message.channel.send(embed)
-      } else if (result == 6) {
-         const embed = new Discord.RichEmbed()
-              .setDescription(`**${message.author.username}** se ha puesto a bailar🎶`)
-              .setImage("https://cdn.discordapp.com/attachments/498186062284193792/500123039740985345/Festive_Maracas_dance.gif")
-              .setColor("#20e510")
-           message.channel.send(embed)
-      } else if (result == 7) {
-         const embed = new Discord.RichEmbed()
-              .setDescription(`**${message.author.username}** se ha puesto a bailar🎶`)
-              .setImage("https://cdn.discordapp.com/attachments/498186062284193792/500123935497650177/130dd832e7293b93903a52fd858f832a.gif")
-              .setColor("#20e510")
-           message.channel.send(embed)
-      } else if (result == 8) {
-         const embed = new Discord.RichEmbed()
-              .setDescription(`**${message.author.username}** se ha puesto a bailar🎶`)
-              .setImage("https://cdn.discordapp.com/attachments/498186062284193792/500124178872008704/Bmo-dance.gif")
-              .setColor("#20e510")
-           message.channel.send(embed)
-      } else if (result == 9) {
-         const embed = new Discord.RichEmbed()
-              .setDescription(`**${message.author.username}** se ha puesto a bailar🎶`)
-              .setImage("https://cdn.discordapp.com/attachments/476898910342873099/495783965991501825/platano.gif")
-              .setColor("#20e510")
-           message.channel.send(embed)
-      } else if (result == 10) {
-         const embed = new Discord.RichEmbed()
-              .setDescription(`**${message.author.username}** se ha puesto a bailar🎶`)
-              .setImage("https://cdn.discordapp.com/attachments/498186062284193792/500124849377771540/tenor.gif")
-              .setColor("#20e510")
-           message.channel.send(embed)
-    }
-      }
-	  if (message.content.startsWith(prefix + "suicide")) {
-result = Math.floor(Math.random() * 10) + 1;   	
-      if (result == 1) {
-         const embed = new Discord.RichEmbed()
-              .setDescription(`**${message.author.username}** se ha suicidado D:`)
-              .setImage("https://i.imgur.com/4JaVy5S.gif")
-              .setColor("#20e510")
-           message.channel.send(embed)
-    	} else if (result == 2) {
-         const embed = new Discord.RichEmbed()
-              .setDescription(`**${message.author.username}** se ha suicidado D:`)
-              .setImage("https://i.imgur.com/604w7Uk.gif")
-              .setColor("#20e510")
-           message.channel.send(embed)
-    	} else if (result == 3) {
-         const embed = new Discord.RichEmbed()
-              .setDescription(`**${message.author.username}** se ha suicidado D:`)
-              .setImage("https://i.imgur.com/ncvcNHp.gif")
-              .setColor("#20e510")
-           message.channel.send(embed)
-      } else if (result == 4) {
-         const embed = new Discord.RichEmbed()
-              .setDescription(`**${message.author.username}** se ha suicidado D:`)
-              .setImage("https://cdn.discordapp.com/attachments/399448944889036801/503052598803300352/ewe.gif")
-              .setColor("#20e510")
-           message.channel.send(embed)
-      } else if (result == 5) {
-         const embed = new Discord.RichEmbed()
-              .setDescription(`**${message.author.username}** se ha suicidado D:`)
-              .setImage("https://tenor.com/vwKs.gif")
-              .setColor("#20e510")
-           message.channel.send(embed)
-      } else if (result == 6) {
-         const embed = new Discord.RichEmbed()
-              .setDescription(`**${message.author.username}** se ha suicidado D:`)
-              .setImage("https://cdn.discordapp.com/attachments/399448944889036801/503051811012214793/pistol.gif")
-              .setColor("#20e510")
-           message.channel.send(embed)
-      } else if (result == 7) {
-         const embed = new Discord.RichEmbed()
-              .setDescription(`**${message.author.username}** se ha suicidado D:`)
-              .setImage("https://cdn.discordapp.com/attachments/399448944889036801/505461231679963147/suicide2.gif")
-              .setColor("#20e510")
-           message.channel.send(embed)
-      } else if (result == 8) {
-         const embed = new Discord.RichEmbed()
-              .setDescription(`**${message.author.username}** se ha suicidado D:`)
-              .setImage("https://cdn.discordapp.com/attachments/399448944889036801/505461250931687445/suicide5.gif")
-              .setColor("#20e510")
-           message.channel.send(embed)
-      } else if (result == 9) {
-         const embed = new Discord.RichEmbed()
-              .setDescription(`**${message.author.username}** se ha suicidado D:`)
-              .setImage("https://cdn.discordapp.com/attachments/399448944889036801/505461272544935950/suicide3.gif")
-              .setColor("#20e510")
-           message.channel.send(embed)
-      } else if (result == 10) {
-         const embed = new Discord.RichEmbed()
-              .setDescription(`**${message.author.username}** se ha suicidado D:`)
-              .setImage("https://cdn.discordapp.com/attachments/399448944889036801/505461296624566283/suicide4.gif")
-              .setColor("#20e510")
-           message.channel.send(embed)
-    }
-      }
-	  if (message.content.startsWith(prefix + "punch")) {
-let user = message.mentions.users.first();
-    if(!user) return message.channel.send("Tienes que mencionar a alguien!");
-      result = Math.floor(Math.random() * 10) + 1;   	
-      if (result == 1) {
-         const embed = new Discord.RichEmbed()
-              .setDescription(`**${message.author.username}** golpeo a **${user.username}**`)
-              .setImage("https://cdn.weeb.sh/images/rkkZP6Z-G.gif")
-              .setColor("#20e510")
-           message.channel.send(embed)
-    	} else if (result == 2) {
-         const embed = new Discord.RichEmbed()
-              .setDescription(`**${message.author.username}** golpeo a **${user.username}**`)
-              .setImage("https://media.giphy.com/media/SzC42gUrhHopW/giphy.gif")
-              .setColor("#20e510")
-           message.channel.send(embed)
-    	} else if (result == 3) {
-         const embed = new Discord.RichEmbed()
-              .setDescription(`**${message.author.username}** golpeo a **${user.username}**`)
-              .setImage("https://vignette.wikia.nocookie.net/koror-blog-org/images/b/b8/Hans-Punch.gif/revision/latest?cb=20140801201844")
-              .setColor("#20e510")
-           message.channel.send(embed)
-      } else if (result == 4) {
-         const embed = new Discord.RichEmbed()
-              .setDescription(`**${message.author.username}** golpeo a **${user.username}**`)
-              .setImage("https://vignette.wikia.nocookie.net/disney/images/1/18/AmyAdams-punch.gif/revision/latest?cb=20130322004751")
-              .setColor("#20e510")
-           message.channel.send(embed)
-      } else if (result == 5) {
-         const embed = new Discord.RichEmbed()
-              .setDescription(`**${message.author.username}** golpeo a **${user.username}**`)
-              .setImage("https://media1.tenor.com/images/13cf3c57f944f24f7c9d8e71d2fe4105/tenor.gif?itemid=6039459")
-              .setColor("#20e510")
-           message.channel.send(embed)
-      } else if (result == 6) {
-         const embed = new Discord.RichEmbed()
-              .setDescription(`**${message.author.username}** golpeo a **${user.username}**`)
-              .setImage("https://thumbs.gfycat.com/FriendlyRegalBighornedsheep-small.gif")
-              .setColor("#20e510")
-           message.channel.send(embed)
-      } else if (result == 7) {
-         const embed = new Discord.RichEmbed()
-              .setDescription(`**${message.author.username}** golpeo a **${user.username}**`)
-              .setImage("https://media.giphy.com/media/7p40vTksh1uPC/giphy.gif")
-              .setColor("#20e510")
-           message.channel.send(embed)
-      } else if (result == 8) {
-         const embed = new Discord.RichEmbed()
-              .setDescription(`**${message.author.username}** golpeo a **${user.username}**`)
-              .setImage("https://media.giphy.com/media/DViGV8rfVjw6Q/giphy.gif")
-              .setColor("#20e510")
-           message.channel.send(embed)
-      } else if (result == 9) {
-         const embed = new Discord.RichEmbed()
-              .setDescription(`**${message.author.username}** golpeo a **${user.username}**`)
-              .setImage("https://cdn.discordapp.com/attachments/498186062284193792/500122211495968779/OUCH.gif")
-              .setColor("#20e510")
-           message.channel.send(embed)
-      } else if (result == 10) {
-         const embed = new Discord.RichEmbed()
-              .setDescription(`**${message.author.username}** golpeo a **${user.username}**`)
-              .setImage("https://cdn.discordapp.com/attachments/476898910342873099/495789026545238016/punch.gif")
-              .setColor("#20e510")
-           message.channel.send(embed)
-    }
-      }
+	  
 	  if (message.content.startsWith(prefix + "question")) {   
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send('No tienes permiso para ejecutar este comando.')
     if(!args.join(' ')) return message.channel.send('Agrege una pregunta para la encuesta.')
@@ -558,7 +354,7 @@ let user = message.mentions.users.first();
         ADD_REACTIONS: false,
         SPEAK: false
     }))
-  message.channel.send('Rol **"Silenciado"** no encontrado. El rol fue creado automáticamente.');
+  message.channel.send('Rol **"Muted"** no encontrado. El rol fue creado automáticamente.');
   
   if (!razon) {
   miembro.addRole(role).catch(console.error);
@@ -609,6 +405,75 @@ let user = message.mentions.users.first();
     message.channel.send({embed});
 
 }
+}
+    	  if(message.content.startsWith(prefix + 'unmute')){
+    let miembro = message.mentions.members.first();
+        let role = message.guild.roles.find("name", "Silenciado");
+        let perms = message.member.hasPermission("MANAGE_ROLES_OR_PERMISSIONS");
+        let args2 = args.join(' ')
+       let razon = args2.split(' ').slice(1).join(' ');
+        
+        if(!perms) return message.channel.send("No tienes el rango requerido para usar este comando.");
+        if(message.mentions.users.size < 1) return message.reply("Debes mencionar a alguien para quitarle el silencio.").catch(console.error);
+        if(!role) return message.channel.send('Rol no encontrado.');
+        if(!miembro.roles.find("name", "Silenciado")) return message.reply("El usuario especificado no está silenciado.")
+        if (!razon) {
+        miembro.removeRole(role).catch(console.error);
+        const embed = new Discord.RichEmbed()
+        .setTitle(":loud_sound: Usuario no silenciado")
+        .setDescription(`El silencio de **${miembro.user.username}** fue retirado.`)
+        .addField('Razón:', 'Ninguna.')
+        .addField("Admin/mod responsable:", `${message.author.username}#${message.author.discriminator}`)
+        .setTimestamp()
+        .setColor(0x42cc25)
+        message.channel.send({embed});
+          return;
+        }
+        
+        message.delete();
+        miembro.removeRole(role).catch(console.error);
+        const embed = new Discord.RichEmbed()
+        .setTitle(":loud_sound: Usuario no silenciado")
+        .setDescription(`El silencio de **${miembro.user.username}** fue retirado.`)
+        .addField('Razón:', `${razon}`)
+        .addField("Admin/mod responsable:", `${message.author.username}#${message.author.discriminator}`)
+        .setTimestamp()
+        .setColor(0x42cc25)
+        message.channel.send({embed});
+}
+      	  if(message.content.startsWith(prefix + 'dance')){
+let gifs = ['https://cdn.discordapp.com/attachments/498186062284193792/500125074830131220/tenor_1.gif', 'https://cdn.discordapp.com/attachments/498186062284193792/500125421791084545/3dcfeb0e3b5b8775fe5f41fb1649e950.gif', 'https://cdn.discordapp.com/attachments/498186062284193792/500124849377771540/tenor.gif', 'https://cdn.discordapp.com/attachments/498186062284193792/500124178872008704/Bmo-dance.gif', 'https://cdn.discordapp.com/attachments/498186062284193792/500123935497650177/130dd832e7293b93903a52fd858f832a.gif', 'https://cdn.discordapp.com/attachments/498186062284193792/500123039740985345/Festive_Maracas_dance.gif', 'https://cdn.discordapp.com/attachments/498186062284193792/500119125343993857/borrar.gif', 'https://cdn.discordapp.com/attachments/498186062284193792/500119369347760128/frix.gif', 'https://cdn.discordapp.com/attachments/498186062284193792/500119394484092941/oficial.gif']
+
+  const embed = new Discord.RichEmbed()
+  .setDescription(`**${message.author.username}** se ha puesto a bailar`)
+  .setImage(gifs[Math.floor(Math.random() * gifs.length)])
+  .setColor(0xd40707)
+  await message.channel.send(embed)
+
+}
+      	  if(message.content.startsWith(prefix + 'kill')){
+  let elementos = ["https://i.imgur.com/6iddVOo.gif", "https://i.imgur.com/y13Kkxf.gif", "https://i.imgur.com/AnDKb7E.gif", "https://i.imgur.com/4krZzOH.gif", "https://i.imgur.com/LQknzjF.gif", "https://i.imgur.com/QCA7ula.gif", "https://i.imgur.com/nNuad7E.gif",
+                     "https://media.giphy.com/media/yRMK47EIu9D3i/giphy.gif", "https://media.giphy.com/media/23UYNxEnHywhy/giphy.gif", "https://media.giphy.com/media/QAEtKq0Vuu4la/giphy.gif", "https://media.giphy.com/media/W7o5wwiAGY0lG/giphy.gif", "https://media.giphy.com/media/20KSmo8aJ7HYu5L0rf/giphy.gif", "http://i.imgur.com/MXRoi1L.gif", "https://cdn.discordapp.com/attachments/399448944889036801/437101193823518731/matsuda1.gif"]
+    let user = message.mentions.users.first()
+
+    if(message.content.includes(bot.user.id)) return message.channel.send('N-no quiero morir... -mira a <@'+message.author.id+'> con miedo-')
+    if (!user) return message.channel.send("M-menciona a alguien... -con miedo-")
+    let exception = ['398658092021055511']
+    if(exception.includes(message.author.id)) {
+      const embed = new Discord.RichEmbed()
+      .setDescription(`**${message.author.username}** se mató él mismo D':`)
+      .setImage(`${elementos[Math.floor(elementos.length * Math.random())]}`)
+      .setColor(0xd32121)
+      message.channel.send({embed});
+    return;
+    }
+    if(message.content.includes(message.author.id)) return message.reply('si quieres matarte, utiliza `ch!suicide`.')
+
+          const embed = new Discord.RichEmbed()
+          .setDescription(`**${message.author.username}** mató a **${user.username}** D':`)
+          .setImage(`${elementos[Math.floor(elementos.length * Math.random())]}`)
+          .setColor(0xd32121)
+          await message.channel.send({embed});
 }
   });
 bot.login(process.env.TOKEN);
