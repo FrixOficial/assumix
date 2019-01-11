@@ -416,7 +416,7 @@ const embed = new Discord.RichEmbed()
         if(!perms) return message.channel.send("No tienes el rango requerido para usar este comando.");
         if(message.mentions.users.size < 1) return message.reply("Debes mencionar a alguien para quitarle el silencio.").catch(console.error);
         if(!role) return message.channel.send('Rol no encontrado.');
-        if(!miembro.roles.find("name", "Silenciado")) return message.reply("El usuario especificado no está silenciado.")
+        if(!miembro.roles.find("name", "Muted")) return message.reply("El usuario especificado no está silenciado.")
         if (!razon) {
         miembro.removeRole(role).catch(console.error);
         const embed = new Discord.RichEmbed()
