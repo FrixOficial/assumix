@@ -447,7 +447,7 @@ let gifs = ['https://cdn.discordapp.com/attachments/498186062284193792/500125074
   const embed = new Discord.RichEmbed()
   .setDescription(`**${message.author.username}** se ha puesto a bailar`)
   .setImage(gifs[Math.floor(Math.random() * gifs.length)])
-  .setColor(#20e510)
+  .setColor("#20e510")
   await message.channel.send(embed)
 
 }
