@@ -408,7 +408,7 @@ const embed = new Discord.RichEmbed()
 }
     	  if(message.content.startsWith(prefix + 'unmute')){
     let miembro = message.mentions.members.first();
-        let role = message.guild.roles.find("name", "Silenciado");
+        let role = message.guild.roles.find("name", "Muted");
         let perms = message.member.hasPermission("MANAGE_ROLES_OR_PERMISSIONS");
         let args2 = args.join(' ')
        let razon = args2.split(' ').slice(1).join(' ');
