@@ -475,5 +475,10 @@ let gifs = ['https://cdn.discordapp.com/attachments/498186062284193792/500125074
           .setColor(0xd32121)
           await message.channel.send({embed});
 }
+	  if(message.content.startsWith(prefix + 'userlimit')){
+              var voiceChannel = message.member.voiceChannel;
+                     const userlimit = (args[0]);
+                  voiceChannel.setUserLimit(userlimit)
+                  }
   });
 bot.login(process.env.TOKEN);
