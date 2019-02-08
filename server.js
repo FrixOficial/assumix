@@ -481,7 +481,6 @@ let gifs = ['https://cdn.discordapp.com/attachments/498186062284193792/500125074
                      const userlimit = (args[0]);
                   if (!userlimit) return message.reply("Especifica la cantidad de usuarios");
                   voiceChannel.setUserLimit(userlimit)
-                          message.channel.send(`El numero de usuarios se cambia a ${userlimit} `)
                   }
   });
 bot.login(process.env.TOKEN);
