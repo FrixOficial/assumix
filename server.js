@@ -478,11 +478,13 @@ let gifs = ['https://cdn.discordapp.com/attachments/498186062284193792/500125074
 	 
 	 if(message.content.startsWith(prefix + 'userlimit')){
               var voiceChannel = message.member.voiceChannel;
-                     const userlimit = (args[0]);
-                  let unlimited = voiceChannel.setUserLimit(0);
-                  let reset = voiceChannel.setUserLimit(0);
-                  if (!userlimit) return message.reply("Especifica la cantidad de usuarios");
-                      voiceChannel.setUserLimit(userlimit)
+                  if (!(args[0])) return message.reply('Especifica la cantidad de usuarios');
+                           const userlimit = (args.join(' '));                
+                            voiceChannel.setUserLimit(userlimit);      
+                 if (userlimit > 99) return message.reply('Los numeros mayores o iguales a 100, no son validos');
+                 if (userlimit < 0) return message.reply('Los numeros negativos no son validos');
+                 if (userlimit < 99) return message.react("✅");
+                 if (userlimit > 0) return message.react("✅");
                   }
   });
 bot.login(process.env.TOKEN);
