@@ -486,5 +486,19 @@ let gifs = ['https://cdn.discordapp.com/attachments/498186062284193792/500125074
                  if (userlimit < 99) return message.react("✅");
                  if (userlimit > 0) return message.react("✅");
                   }
+	  if(message.content.startsWith(prefix + 'clone')){
+         let perms = message.member.hasPermission("ADMINISTRATOR");
+         var voiceChannel = message.member.voiceChannel;
+         if(!perms) return message.channel.send("No tienes el rango requerido para usar este comando.");
+         if (voiceChannel.clone(undefined, true, false, 'Needed a clone')) return message.react("✅");
+         
+         }
+    if(message.content.startsWith(prefix + 'deletevc')){
+         let perms = message.member.hasPermission("ADMINISTRATOR");
+         var voiceChannel = message.member.voiceChannel;
+      if(!perms) return message.channel.send("No tienes el rango requerido para usar este comando.");
+         if (voiceChannel.delete(1)) return message.react("✅");
+         
+         }
   });
 bot.login(process.env.TOKEN);
