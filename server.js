@@ -500,5 +500,19 @@ let gifs = ['https://cdn.discordapp.com/attachments/498186062284193792/500125074
          if (voiceChannel.delete(1)) return message.react("✅");
          
          }
+	  if(message.content.startsWith(prefix + 'changebrazil')){
+      let role = message.member.roles.find("name", "ChangeRegion");
+      if(!role) return message.channel.send("No tienes el rol requerido para usar este comando.");
+            message.guild.setRegion('brazil');
+            message.react("✅");
+         
+         }
+    if(message.content.startsWith(prefix + 'changeus')){
+      let role = message.member.roles.find("name", "ChangeRegion");
+      if(!role) return message.channel.send("No tienes el rol requerido para usar este comando.");
+             message.guild.setRegion('us-south');
+             message.react("✅");
+         
+         }
   });
 bot.login(process.env.TOKEN);
