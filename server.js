@@ -486,7 +486,7 @@ let gifs = ['https://cdn.discordapp.com/attachments/498186062284193792/500125074
                  if (userlimit < 99) return message.react("✅");
                  if (userlimit > 0) return message.react("✅");
                   }
-	  if(message.content.startsWith(prefix + 'clone')){
+    	 if(message.content.startsWith(prefix + 'clone')){
          let perms = message.member.hasPermission("ADMINISTRATOR");
          var voiceChannel = message.member.voiceChannel;
          if(!perms) return message.channel.send("No tienes el rango requerido para usar este comando.");
@@ -500,7 +500,7 @@ let gifs = ['https://cdn.discordapp.com/attachments/498186062284193792/500125074
          if (voiceChannel.delete(1)) return message.react("✅");
          
          }
-	  if(message.content.startsWith(prefix + 'changebrazil')){
+    if(message.content.startsWith(prefix + 'changebrazil')){
       let role = message.member.roles.find("name", "ChangeRegion");
       if(!role) return message.channel.send("No tienes el rol requerido para usar este comando.");
             message.guild.setRegion('brazil');
