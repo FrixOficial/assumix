@@ -490,7 +490,7 @@ let gifs = ['https://cdn.discordapp.com/attachments/498186062284193792/500125074
          let perms = message.member.hasPermission("ADMINISTRATOR");
          var voiceChannel = message.member.voiceChannel;
          if(!perms) return message.channel.send("No tienes el rango requerido para usar este comando.");
-         if (voiceChannel.clone(undefined, true, false, 'Needed a clone')) return message.react("✅");
+         if (voiceChannel.clone(this.name, true, false, 'Needed a clone')) return message.react("✅");
          
          }
     if(message.content.startsWith(prefix + 'deletevc')){
